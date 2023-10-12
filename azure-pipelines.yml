@@ -19,16 +19,15 @@ steps:
   displayName: 'Run a multi-line script'
 - task: ServiceNow-DevOps-Server-Change-Acceleration@1
   inputs:
-      connectedServiceName: 'dev54550-NR-Project1-DevOpsCHGVelocity-ServiceNow DevOps Service Connection'
-      UpstreamJob: 'Test'
-      changeRequestDetails: |
-        {
-            "setCloseCode" : true,
-            "attributes": {
-              "requested_by": {
-                "name": "Amlesh Singh"
-              },
-              "start_date": "2024-01-05 08:00:00",
-              "end_date": "2024-01-08 08:00:00"
-            }
+    connectedServiceName: 'dev54550-NR-Project1-DevOpsCHGVelocity-ServiceNow DevOps Service Connection'
+    changeRequestDetails: |
+      {
+          "setCloseCode" : true,
+          "attributes": {
+            "requested_by": {
+              "name": "Amlesh Singh"
+            },
+            "start_date": "2024-01-05 08:00:00",
+            "end_date": "2024-01-08 08:00:00"
           }
+        }
