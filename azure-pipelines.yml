@@ -16,18 +16,24 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-- task: ServiceNow-DevOps-Server-Change-Acceleration@1
+- task: ServiceNow-DevOps-Agent-Artifact-Registration@1
   inputs:
     connectedServiceName: 'dev54550-NR-Project1-DevOpsCHGVelocity-ServiceNow DevOps Service Connection'
-    changeRequestDetails: |
+    artifactsPayload: |
       {
-          "setCloseCode" : true,
-          "attributes": {
-            "requested_by": {
-              "name": "test user"
+         "artifacts": [
+            {
+               "name": "artifact",
+               "version": "1.$(Build.BuildId)",
+               "semanticVersion": "1.$(Build.BuildId).0",
+               "repositoryName": "<artifact repository name>"
             },
-            "start_date": "2021-01-05 08:00:00",
-            "end_date": "2021-01-08 08:00:00"
-          }
-        }
+            {
+               "name": "<artifact name>",
+               "version": "1.$(Build.BuildId)",
+               "semanticVersion": "1.$(Build.BuildId).0",
+               "repositoryName": "<artifact repository name>"
+            }
+         ]
+      }
 
